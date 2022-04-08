@@ -1,0 +1,21 @@
+URL: /
+Timestamp: Fri Apr 08 2022 21:39:01 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Fri Apr 08 2022 21:39:01 GMT+0200 (Central European Summer Time)
+
+URL: /documentation
+Timestamp: Fri Apr 08 2022 21:49:19 GMT+0200 (Central European Summer Time)
+
+URL: /css/style.css
+Timestamp: Fri Apr 08 2022 21:49:19 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Fri Apr 08 2022 21:49:19 GMT+0200 (Central European Summer Time)
+
+URL: /
+Timestamp: Fri Apr 08 2022 21:53:47 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Fri Apr 08 2022 21:53:47 GMT+0200 (Central European Summer Time)
+
