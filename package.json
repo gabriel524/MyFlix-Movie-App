@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/gabriel524/MyFlix-Movie-App#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.17.3",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
