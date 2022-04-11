@@ -3,6 +3,7 @@
 
  Please note that this app is still undergoing development thus there will be constant updates to the codes and other information for the application until it's completed.
 
- # Bulid with 
+ # Build with 
  . Node.js 
+
  . Powershell
