@@ -44,7 +44,7 @@ let movies = [
     Genre: {
       Name: 'Science Fiction, Fantasy, Action',
       Description: "Star Wars: The Last Jedi (also known as Star Wars: Episode VIII-The Last Jedi) is a 2017 American epic space opera.",
-      /*Stars: ['Mark Hamill', 'Daisy Ridley', 'Adam Driver', 'john Boyega'],*/
+      Stars: ['Mark Hamill', 'Daisy Ridley', 'Adam Driver', 'john Boyega'],
     },
 
     Director: {
