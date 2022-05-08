@@ -40,38 +40,174 @@
         </div>
     </nav>
 
-    <h1 style="color:blue;">App Documentation</h1>
-    <h3 style="text-decoration:underline;">Here you can find information on how to utilize the API</h3>
-    <p>
-      This project comprieses of an API that gives users access to a movie database where they can <br>
-      search for movies by names, and information about the specific movies such as, director, genre, artwork, <br>
-      etc. Users can also sign up, update their personal information as well as create a list of their favorite movies.<br>
-    </p>
-    <h2 style="color:blue;">Endpoints and Descriptions.</h2>
-    <br />
-        <table class="table table-bordered">
-          <thead>
-              <tr>
-                  <th>Business Logic</th>
-                  <th>URL</th>
-                  <th>HTTP Method</th>
-                  <th>Query Parameters</th>
-                  <th>Request body data format </th>
-                  <th>Response body data format</th>
-              </tr>
-          </thead>
-          </table>
-          <table class="table table-bordered">
-          <thead>
-               <tr>
-                   <th>Return a list of All movies to the user</th>
-                   <th>/movies</th>
-                   <th>GET</th>
-                   <th>None</th>
-                   <th>None</th>
-                   <th>A JSON object holding data about all movies</th>
-               </tr>
-               <thead/>
-          </div>
+    <div class="container">
+        <div class="jumbotron py-3">
+            <div class="container">
+                <h1 style="color:blue; text-align: center; text-decoration-line: underline;" class="display-4">App Documentation</h1> <br>
+                <p class="lead"> Here you can find information on how to utilize the API with a list of all the endpoints to use the API service</p><br>
+               <div>
+                   <h2 style="font-family: 'Oswald', sans-serif; color: purple; text-decoration: underline;">Brief intro about the the app</h2>
+                
+                   <p class="lead">
+                    This project comprieses of an API that gives users access to a movie database where they can <br>
+                    search for movies by names, and information about the specific movies such as, director, genre, artwork, <br>
+                    etc. Users can also sign up, update their personal information as well as create a list of their favorite movies.<br>
+                </p>
+                </div>
+                <hr class="my-3">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <p>If you have any questions or suggestion, please feel free to drop me a line.</p>
+                    <a class="btn btn-primary btn-sm" href="mailto:lindirizzoemail@gmail.com" role="button">Send a message</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+
+    <div class="container">
+        <div class="card my-3">
+            <div class="card-header">
+                Please visit the table below to see all detailed methods and more!
+            </div>
+        </div>
+    
+    <h2>Endpoints and Descriptions.</h2>
+
+    <table style="border: 1px solid black; border-collapse: collapse;" class="table table-bordered">
+        <thead style="color:blue;">
+            <tr>
+                <th> Business Logic/Request</th>
+                <th>URL Endpoints</th>
+                <th>Method</th>
+                <th>Query Parameters</th>
+                <th>Request body data format</th>
+                <th>Response body data format</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Return a list of all the movies to the user</td>
+                <td>/movies</td>
+                <td>GET</td>
+                <td>None</td>
+                <td>None</td>
+                <td>A JSON object holding all the data about all the movies</td>
+            </tr>
+            <tr>
+                <td>Return data about a single movie by title to the user</td>
+                <td>/movies/[title]</td>
+                <td>GET</td>
+                <td>:title</td>
+                <td>None</td>
+                <td>A JSON object holding all the data about a single movie. Example:<br>
+                    { <br>
+                        Title:  "Man of Steel",<br>
+                        Director: "Zack Snyder",<br>
+                        Genre: '"Fantasy/Superhero",<br>
+
+                      }      
+                </td>
+            </tr>
+            <tr>
+                <td>Return data about a genre by name</td>
+                <td>movies/genre/[genre]</td>
+                <td>GET</td>
+                <td>:genre</td>
+                <td>None</td>
+                <td>A JSON object format containing movies belonging to a specific genre. Example: <br><br>
+                    { <br>
+                        Title: 'The Lord of the Rings: The Fellowship of the Ring',<br>
+                        Director: "Sir Peter Jackson",<br>
+                        Genre: 'Fantasy',<br>
+
+                      } <br>
+                   
+                </td>
+            </tr>
+            <tr>
+                <td>Return data about a director by name</td>
+                <td>/movies/director/[director]</td>
+                <td>GET</td>
+                <td>:director</td>
+                <td>None</td>
+                <td>A JSON format data holding all the data about a director by name. Example:<br>
+                    { <br>
+                        Name:"Christopher Nolan",<br>
+                        Bio: "A short bio",<br>
+                        Dob:"July 30, 1970"<br>
+                        <br>
+                      }
+                    </td>
+            </tr>
+
+            <tr>
+                <td>Allow users to add a movie to their list of favorites</td>
+                <td>/favourite/add/[id]/[title]</td>
+                <td>POST</td>
+                <td>:add</td>
+                <td>A JSON format data containing all the new data about the movie to be added. Example:<br><br>
+                    { <br>
+
+                    Title: 'Man of Steel',<br>
+                    Director: "Zack Snyder",<br>
+                    Genre: 'Fantasy/Superhero',<br>
+                    <br>
+                    }
+                </td>
+                <td>A JSON format data containing the newly added movie details. <br>
+                    {  <br> 
+                        id: 1, <br>
+                        name: "Abraham",<br>
+                        email: "Abraham.will@gmail.com",<br>
+                        password: "kwt@rt2022!",<br>
+                        birthday: "26/04/1999",<br>
+                        favoriteMovies: ["Man of Steel"],<br> 
+                        <br>
+                    }
+                
+                </td>
+            </tr>
+
+            <tr>
+                <td>Allow new users to register</td>
+                <td>/users/register</td>
+                <td>POST</td>
+                <td>:added/register</td>
+                <td>Data containing new user details</td>
+                <td>A text response indicating that a new user was added or register </td>
+            </tr>
+
+            <tr>
+                <td>Allow users to update their user info</td>
+                <td>/users/update/[id]</td>
+                <td>PUT</td>
+                <td>:id</td>
+                <td>Data containing changes to old profile</td>
+                <td>A text response indicating that the changes wer deployed successful vai update</td>
+            </tr>
+
+            <tr>
+                <td>Allow users to remove a movie from their list of favorites</td>
+                <td>/favourite/delete/[id]/[title]</td>
+                <td>DELETE</td>
+                <td>:id, :title</td>
+                <td>None</td>
+                <td>An array without the removed movie</td>
+            </tr>
+
+            <tr>
+                <td>Allow existing users to deregister</td>
+                <td>/users/deregister/delete/[id]</td>
+                <td>DELETE</td>
+                <td>:id</td>
+                <td>None</td>
+                <td>A text response indicating that the user profile was successfully deregistered/deleted</td>
+            </tr>  
+        </tbody>
+    </table>
+
+    </div>
+    
   </body>
 </html>
