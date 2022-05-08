@@ -226,7 +226,7 @@ let movies = [
     },
     ImageURL: "https://wallpapercave.com/the-lord-of-the-rings-the-fellowship-of-the-ring-wallpapers",
     Featured: true
-  }
+  },
 ];
 
 //middleware - logging, static public folder, error logging
@@ -236,10 +236,6 @@ app.use(express.static('public'));
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('somethng seems broken here!');
-});
-//logic here to send a response
-app.get('/movies', (req, res) => {
-  res.send('Welcome to MyFlix Movie App!');
 });
 
 //Create
@@ -301,6 +297,7 @@ app.delete('/users/:id/:movieTitle', (req, res) => {
   } else {
     res.status(400).send("no such user")
   }
+});
 
   //Delete
 app.delete('/users/:id', (req, res) => {
@@ -314,6 +311,7 @@ app.delete('/users/:id', (req, res) => {
   } else {
     res.status(400).send("no such user")
   }
+});
 
 
 //Read
