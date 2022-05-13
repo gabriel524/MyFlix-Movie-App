@@ -50,11 +50,12 @@ let movies = [
     Director: {
       Name: 'Rian Johnson',
       Bio: "Rian Craig Johnson is an American filmmaker. He made his directorial debut with the neo-noir mystery film Brick, which received positive reviews and grossed nearly $4 million on a $450,000 budget.",
-      Birth:" December 17, 1973"
+      Birthyear:" December 17, 1973",
+      Deathyear:"....."
 
     },
     
-    ImageURL: "https://www.imdb.com/title/tt2527336/mediaviewer/rm574104832/",
+    Imagepath: "https://www.imdb.com/title/tt2527336/mediaviewer/rm574104832/",
     Featured: true
   },
 
@@ -70,9 +71,10 @@ let movies = [
     Director: {
       Name:'Greg Beeman',
       Bio:"Greg Beeman is an American film and television director and producer and winner of the Director's Guild of America award for Outstanding Directorial Achievement.",
-      Birth:"1962"
+      Birthyear:"1962",
+      Deathyear:"....",
     },
-    ImageURL: "https://www.imdb.com/title/tt0279600/mediaviewer/rm1689082368/",
+    Imagepath: "https://www.imdb.com/title/tt0279600/mediaviewer/rm1689082368/",
     Featured:true
   },
 
@@ -88,10 +90,11 @@ let movies = [
   Director: {
     Name:"Christopher Nolan",
     Bio:"Christopher Nolan CBE is a British-American film director, producer, and screenwriter.",
-    Birth:"July 30, 1970"
+    Birthyear:"July 30, 1970",
+    Deathyear:"....",
   },
 
-  ImageURL: "https://best-of-netflix.com/the-adam-project-playlist-a-full-list-of-all-the-songs-in-the-netflix-film/",
+  Imagepath: "https://best-of-netflix.com/the-adam-project-playlist-a-full-list-of-all-the-songs-in-the-netflix-film/",
   Featured: true
 },
 
@@ -107,10 +110,11 @@ let movies = [
   Director: {
     Name:"Lana Wachowski",
     Bio:"Lana Wachowski is an American film and television directors, writers and producers.",
-    Birth:"June 21, 1965 ",
+    Birthyear:"June 21, 1965 ",
+    Deathyear:"....",
   },
   
-  ImageURL: "https://www.imdb.com/title/tt0133093/mediaviewer/rm525547776/",
+  Imagepath: "https://www.imdb.com/title/tt0133093/mediaviewer/rm525547776/",
   Featured: true
 },
   
@@ -126,10 +130,11 @@ let movies = [
   Director:{
     Name:"Jon Watts",
     Bio:"Jonathan Watts is an American filmmaker. His credits include directing the Marvel Cinematic Universe superhero films Spider-Man: Homecoming, Spider-Man: Far From Home, and Spider-Man: No Way Home.",
-    Birth:"June 28, 1981",
+    Birthyear:"June 28, 1981",
+    Deathyear:"....",
   },
 
-  ImageURL:"https://www.meganerd.it/spider-man-no-way-home-online-i-primi-10-minuti-del-film/",
+  Imagepath:"https://www.meganerd.it/spider-man-no-way-home-online-i-primi-10-minuti-del-film/",
   Featured: true
 },
 
@@ -145,10 +150,11 @@ let movies = [
   Director:{
     Name:"Alan Taylor",
     Bio: "lan Taylor is an American television and film director. He is known for his work on TV shows such as Lost, The West Wing, Six Feet Under, Sex and the City, The Sopranos, Game of Thrones, Boardwalk Empire, Deadwood, and Mad Men.",
-    Birth: "January 13, 1959",
+    Birthyear: "January 13, 1959",
+    Deathyear:".....",
   },
 
-  ImageURL:"https://www.imdb.com/title/tt0944947/mediaviewer/rm4204167425/",
+  Imagepath:"https://www.imdb.com/title/tt0944947/mediaviewer/rm4204167425/",
   Featured:true
 },
 
@@ -164,10 +170,11 @@ let movies = [
   Director:{
     Name:"Sir Peter Jackson",
     Bio:"Sir Peter Robert Jackson ONZ KNZM is a New Zealand film director, screenwriter, and film producer.",
-    Birth:"October 31, 1961",
+    Birthyear:"October 31, 1961",
+    Deathyear:".....",
   },
 
-  ImageURL: "https://boardgamegeek.com/image/55523/lord-rings-return-king",
+  Imagepath: "https://boardgamegeek.com/image/55523/lord-rings-return-king",
   Featured: true
 },
 
@@ -182,10 +189,11 @@ let movies = [
   Director: {
     Name: 'Chloe Zhao',
     Bio: "Chloé Zhao, born Zhao Ting, is a Chinese filmmaker, known primarily for her work on independent films.",
-    Birth:"March 31, 1982"
+    Birthyear:"March 31, 1982",
+    Deathyear:".....",
   },
 
-  ImageURL: "https://deshinewsprime.com/eternals-movie-review-this-26th-mcu-film-is-inclusive-and-majestic/",
+  Imagepath: "https://deshinewsprime.com/eternals-movie-review-this-26th-mcu-film-is-inclusive-and-majestic/",
   Featured: true
 },
 
@@ -199,15 +207,14 @@ let movies = [
   },
 
   Director:{
-    irector: {
       Name: "Zack Snyder",
       Bio: "Zachary Edward Snyder is an American film director, producer, screenwriter, and cinematographer.",
-      Birth:"March 1, 1966"
+      Birthyear:"March 1, 1966",
+      Deathyear:".....",
     },
-    ImageURL: "http://jrforasteros.com/wp-content/uploads/2013/06/Man-of-Steel.jpg",
+    Imagepath: "http://jrforasteros.com/wp-content/uploads/2013/06/Man-of-Steel.jpg",
     Featured: true
   },
-},
 
   {
     Title: 'The Lord of the Rings: The Fellowship of the Ring',
@@ -221,10 +228,11 @@ let movies = [
     Director: {
       Name: "Sir Peter Jackson",
       Bio: "Sir Peter Robert Jackson ONZ KNZM is a New Zealand film director, screenwriter, and film producer.",
-      Birth:"October 31, 1961"
+      Birthyear:"October 31, 1961",
+      Deathyear:".....",
 
     },
-    ImageURL: "https://wallpapercave.com/the-lord-of-the-rings-the-fellowship-of-the-ring-wallpapers",
+    Imagepath: "https://wallpapercave.com/the-lord-of-the-rings-the-fellowship-of-the-ring-wallpapers",
     Featured: true
   },
 ];
