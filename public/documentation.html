@@ -71,7 +71,7 @@
     <table style="border: 1px solid black; border-collapse: collapse;" class="table table-bordered">
         <thead style="color:blue;">
             <tr>
-                <th> Business Logic/Request</th>
+                <th>Business Logic/Request</th>
                 <th>URL Endpoints</th>
                 <th>Method</th>
                 <th>Query Parameters</th>
@@ -143,21 +143,24 @@
                 <td>A JSON format data containing all the new data about the movie to be added. Example:<br><br>
                     { <br>
 
-                    Title: 'Man of Steel',<br>
-                    Director: "Zack Snyder",<br>
-                    Genre: 'Fantasy/Superhero',<br>
+                    Title: "Smallville",<br>
+                    Director: "Greg Beeman",<br>
+                    Genre: "Supernatural, Action, Drama, Superhero.",<br>
                     <br>
                     }
                 </td>
-                <td>A JSON format data containing the newly added movie details. <br>
-                    {  <br> 
-                        id: 1, <br>
-                        name: "Abraham",<br>
-                        email: "Abraham.will@gmail.com",<br>
-                        password: "kwt@rt2022!",<br>
-                        birthday: "26/04/1999",<br>
-                        favoriteMovies: ["Man of Steel"],<br> 
-                        <br>
+                <td>A JSON format data containing the newly added movie details. <br><br>
+
+                    {
+                        "_id" : ObjectId("6290ffffb5b2ef31f261fbef"), <br>
+                        "Username" : "Abraham Cooper",<br>
+                        "Password" : "kwt@rt2022!",<br>
+                        "Email" : "Abraham.will@gmail.com", <b></b>
+                        "Birthday" : "26/04/1999",<br>
+                        "FavoriteMovies" : [ <br>
+                            "6290cad69cc37ae6f751ddc9",<br>
+                            "6290cad69cc37ae6f751ddcb" <br>
+                        ]
                     }
                 
                 </td>
@@ -183,7 +186,7 @@
 
             <tr>
                 <td>Allow users to remove a movie from their list of favorites</td>
-                <td>/favourite/delete/[id]/[title]</td>
+                <td>/favourite/delete/[movieId]/[title]</td>
                 <td>DELETE</td>
                 <td>:id, :title</td>
                 <td>None</td>
