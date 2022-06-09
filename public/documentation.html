@@ -136,31 +136,30 @@
             </tr>
 
             <tr>
-                <td>Allow users to add a movie to their list of favorites</td>
-                <td>/favourite/add/[id]/[title]</td>
+                <td>Add a new user</td>
+                <td>/user</td>
                 <td>POST</td>
                 <td>:add</td>
-                <td>A JSON format data containing all the new data about the movie to be added. Example:<br><br>
-                    { <br>
-
-                    Title: "Smallville",<br>
-                    Director: "Greg Beeman",<br>
-                    Genre: "Supernatural, Action, Drama, Superhero.",<br>
-                    <br>
-                    }
+                <td>A JSON object cotaining data about a new added user structured like:<br><br>
+                    {<br>
+                        "Username": "Amos Olsen",<br>
+                        "Password": "Qb_z24aZ18",<br>
+                        "Email": "amosOlsen.5547@gmail.com",<br>
+                        "Birthday": "02/10/20001"<br>
+                        "FavoriteMovies":[]<br>
+                        }
                 </td>
-                <td>A JSON format data containing the newly added movie details. <br><br>
+                <td>A JSON format data containing the newly added user including an ID example:<br><br>
 
-                    {
-                        "_id" : ObjectId("6290ffffb5b2ef31f261fbef"), <br>
-                        "Username" : "Abraham Cooper",<br>
-                        "Password" : "kwt@rt2022!",<br>
-                        "Email" : "Abraham.will@gmail.com", <b></b>
-                        "Birthday" : "26/04/1999",<br>
-                        "FavoriteMovies" : [ <br>
-                            "6290cad69cc37ae6f751ddc9",<br>
-                            "6290cad69cc37ae6f751ddcb" <br>
-                        ]
+                    {<br>
+                        "_id": "62a1ddfbf676c9324d56e400",<br>
+                        "Username": "Amos Olsen",<br>
+                        "Password": "Qb_z24aZ18",<br>
+                        "Email": "amosOlsen.5547@gmail.com",<br>
+                        "Birthday": "+020001-02-09T23:00:00.000Z",<br>
+                        "FavoriteMovies": [],<br>
+                        "__v": 0<br>
+
                     }
                 
                 </td>
@@ -176,12 +175,32 @@
             </tr>
 
             <tr>
-                <td>Allow users to update their user info</td>
-                <td>/users/update/[id]</td>
+                <td>Allow users to update their user info such as thier password</td>
+                <td>/users/update/[password]</td>
                 <td>PUT</td>
-                <td>:id</td>
-                <td>Data containing changes to old profile</td>
-                <td>A text response indicating that the changes wer deployed successful vai update</td>
+                <td>:password</td>
+                <td>A JSON object holding data to update example:<br><br>
+
+                {<br>
+                    "Username": "Williams Smith",<br>
+                    "Password": "Wspgkf0562g336488_23",<br>
+                    "Email": "willsmith.8103@gmail.com",<br>
+                    "Birthday": "23/2/1997",<br>
+                    }<br>
+                </td>
+                <td>A JSON object holding the updated user Example:<br><br>
+                    {<br>
+                    "_id": "6290ffffb5b2ef31f261fbf4",<br>
+                    "Username": "Williams Smith",<br>
+                    "Password": "bw24aZ18",<br>
+                    "Email": "willsmith.8103@gmail.com",<br>
+                    "FavoriteMovies": [<br>
+                    "6290cad69cc37ae6f751ddcc",<br>
+                    "6290cad69cc37ae6f751ddd1",<br>
+                    "6290cad69cc37ae6f751ddca"<br>
+
+                    }<br>
+                </td>
             </tr>
 
             <tr>
@@ -194,12 +213,23 @@
             </tr>
 
             <tr>
-                <td>Allow existing users to deregister</td>
-                <td>/users/deregister/delete/[id]</td>
+                <td>Dlete a specific user date from the users list</td>
+                <td>/users/delete/</td>
                 <td>DELETE</td>
-                <td>:id</td>
-                <td>None</td>
-                <td>A text response indicating that the user profile was successfully deregistered/deleted</td>
+                <td>:info</td>
+                <td> A json obeject containg a user to be deleted fromt he user list examples:<br><br>
+                        "Username": "Abraham Cooper",<br>
+                        "Password": "kwt@rt2022!",<br>
+                        "Email": "Abraham.will@gmail.com",<br>
+                        "Birthday": "26/04/1999",<br>
+                        "FavoriteMovies":[<br>
+                        "6290cadg9cc37ae6f751ddc9",<br>
+                        "6290cadg9cc37ae6f751ddcb"<br>
+                        ]<br>
+                </td>
+                <td>A text response indicating that the user has been deleted for example: <br><br>
+                    "Abraham Cooper was deleted from the list!"<br>
+                </td>
             </tr>  
         </tbody>
     </table>
