@@ -1,3 +1,6 @@
+/*This Code is a wrough copy of less important data meant for editing or working with the actual project files for all users*/
+
+
 let users = ([
     {
       Username: "Abraham Cooper",
@@ -47,13 +50,6 @@ let users = ([
         FavoriteMovies: ["The Lord of the Rings: The Return of the King", "Eternals", "The Lord of the Rings: The Fellowship of the Ring"],
       },
   ]);
-
-
-
-
-
-
-
 
   let users = ([
     {
