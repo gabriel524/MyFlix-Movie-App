@@ -3,10 +3,10 @@ bodyParser = require("body-parser"),
   morgan = require("morgan"),
   fs = require("fs"), 
   path = require("path");
-require("lodash");
-  uuid = require("uuid");
-  
-  require("express-validator");
+  uuid = require('uuid');
+  require('lodash');
+
+  const { body, validationResult } = require('express-validator');
   
   const app = express();
 app.use(bodyParser.json());
@@ -19,8 +19,7 @@ app.use(morgan("common")); //add morgan middlewar library
 
   const Movies = Models.Movie;
   const Users = Models.User;
-  const Genres = Models.Genre;
-  const Directors = Models.Director;
+  
   mongoose.connect("mongodb://localhost:27017/test",
   { useNewUrlParser: true,
     useUnifiedTopology: true });
@@ -50,7 +49,7 @@ app.get("/documentation", (req, res) => {
 });
 
 // Get all movies
-app.get("/movies-were", (req, res) => {
+app.get("/movies", (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
@@ -86,7 +85,7 @@ app.get("/users/:Username", (req, res) => {
 });
 
 // Get json movie when looking for specific title of a movie
-app.get("/movies/:Title ", (req, res) => {
+app.get("/movies/:Title", (req, res) => {
   Movies.findOne({Title: req.params.Title })
     .then((movie) => {
       res.json(movie);
@@ -98,12 +97,11 @@ app.get("/movies/:Title ", (req, res) => {
     });
 });
 
-
 // Get json genre infomation when looking for specific movie genre
-app.get("/genre/:Name ", (req, res) => {
-  Genres.findOne({Name: req.params.Name })
+app.get("/genre/:Name", (req, res) => {
+  Movies.findOne({"Genre.Name": req.params.Name })
     .then((genre) => {
-      res.json(genre.Description);
+      res.json(genre);
     })
     
     .catch((err) => {
@@ -113,11 +111,12 @@ app.get("/genre/:Name ", (req, res) => {
 });
 
 // Get infomation on director when looking for a specific director in the movies arry
-app.get("/director ", (req, res) => {
-  Directors.findOne({Name: req.params.Name })
+app.get("/director/:Name", (req, res) => {
+  Movies.findOne({"Director.Name": req.params.Name })
     .then((director) => {
       res.json(director);
     })
+
     .catch((err) => {
       console.error(err);
       res.status(500).send("Error: " + err);
@@ -160,7 +159,7 @@ app.post("/users/:Username/movies/:MovieID", (req, res) => {
   (err, updatedUser) => {
     if (err) {
       console.error(err);
-      res.status(500).send("Error: " + err);
+      res.status(500).send("Error:" + err);
     } else {
       res.json(updatedUser);
     }
@@ -168,7 +167,7 @@ app.post("/users/:Username/movies/:MovieID", (req, res) => {
 }); //End of create
 
 //Start of update
-app.put("/users/:Username ", (req, res) => {
+app.put("/users/:Username", (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, { $set:
     {
       Username: req.body.Username,
@@ -181,7 +180,7 @@ app.put("/users/:Username ", (req, res) => {
   (err, updatedUser) => {
     if(err) {
       console.error(err);
-      res.status(500).send('Error: ' + err);
+      res.status(500).send("Error:" + err);
     } else {
       res.json(updatedUser);
     }
