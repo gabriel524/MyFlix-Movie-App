@@ -191,7 +191,7 @@ app.put("/users/:Username", (req, res) => {
 app.delete('/users/:id/:movieTitle', (req, res) => {
   const{ id, movieTitle } = req.params;
 
-  let user = users.find( user => user.id == id);
+  let user = user.find( user => user.id == id);
 
   if(user){
     user.favoriteMovies = user.favoriteMovies.filter( title => title !== movieTitle);
@@ -200,6 +200,21 @@ app.delete('/users/:id/:movieTitle', (req, res) => {
     res.status(400).send("no such user")
   }
 });
+
+/*app.delete('/:name/movies/:MovieID', (req, res) => {
+  Users.findOneAndUpdate({ name: req.params.name }, {
+      $pull: { favoriteMovies: req.params.MovieID }
+  },
+      { new: true },
+      (err, updatedUser) => {
+          if (err) {
+              console.error(err);
+              res.status(500).send('Error: ' + err);
+          } else {
+              res.json(updatedUser);
+          }
+      });
+});*/
 
   //Delete
 // Delete a user by username
