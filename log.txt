@@ -790,3 +790,4 @@ Timestamp: Sat Apr 09 2022 01:03:54 GMT+0200 (Central European Summer Time)
 ::1 - - [12/Jun/2022:17:59:02 +0000] "GET /movies/directors/ HTTP/1.1" 200 4 "-" "PostmanRuntime/7.29.0"
 ::1 - - [12/Jun/2022:17:59:05 +0000] "GET /movies/directors HTTP/1.1" 200 4 "-" "PostmanRuntime/7.29.0"
 ::1 - - [12/Jun/2022:17:59:11 +0000] "GET /movies HTTP/1.1" 201 9063 "-" "PostmanRuntime/7.29.0"
+::1 - - [12/Jun/2022:18:12:09 +0000] "GET /users HTTP/1.1" 201 1357 "-" "PostmanRuntime/7.29.0"
