@@ -12,6 +12,10 @@ bodyParser = require("body-parser"),
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+let auth = require("./auth") (app);
+const passport = require("passport");
+require("./passport");
+
 app.use(morgan("common")); //add morgan middlewar library
   
   const mongoose = require ("mongoose");
@@ -49,7 +53,7 @@ app.get("/documentation", (req, res) => {
 });
 
 // Get all movies
-app.get("/movies", (req, res) => {
+app.get("/movies", passport.authenticate ("jwt", { session: false }), (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
