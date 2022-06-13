@@ -12,10 +12,6 @@ bodyParser = require("body-parser"),
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-let auth = require("./auth") (app);
-const passport = require("passport");
-require("./passport");
-
 app.use(morgan("common")); //add morgan middlewar library
   
   const mongoose = require ("mongoose");
@@ -53,7 +49,7 @@ app.get("/documentation", (req, res) => {
 });
 
 // Get all movies
-app.get("/movies", passport.authenticate ("jwt", { session: false }), (req, res) => {
+app.get("/movies", (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
@@ -105,7 +101,7 @@ app.get("/movies/:Title", (req, res) => {
 app.get("/genre/:Name", (req, res) => {
   Movies.findOne({"Genre.Name": req.params.Name })
     .then((genre) => {
-      res.json(genre);
+      res.json(genre.Genre);
     })
     
     .catch((err) => {
@@ -118,7 +114,7 @@ app.get("/genre/:Name", (req, res) => {
 app.get("/director/:Name", (req, res) => {
   Movies.findOne({"Director.Name": req.params.Name })
     .then((director) => {
-      res.json(director);
+      res.json(director.Director);
     })
 
     .catch((err) => {
@@ -191,52 +187,37 @@ app.put("/users/:Username", (req, res) => {
   });
 });
 
-//Delete
-app.delete('/users/:id/:movieTitle', (req, res) => {
-  const{ id, movieTitle } = req.params;
-
-  let user = user.find( user => user.id == id);
-
-  if(user){
-    user.favoriteMovies = user.favoriteMovies.filter( title => title !== movieTitle);
-    res.status(200).send(`${movieTitle} has been remove from user ${id}'s array`);
-  } else {
-    res.status(400).send("no such user")
-  }
+//allow user to delete movie from favorites list
+app.delete('/users/:Username/movies/:MovieID', (req, res) => {
+  Users.findOneAndUpdate({ Username: req.params.Username },
+  {$pull : { FavoriteMovies: req.params.MovieID }},
+  {new: true },
+  (err, updatedUser) => {
+      if (err) {
+          console.error(err);
+          res.status(500).send('Error: ' + err);
+      } else {
+          res.json(updatedUser);
+      }
+  });
 });
 
-/*app.delete('/:name/movies/:MovieID', (req, res) => {
-  Users.findOneAndUpdate({ name: req.params.name }, {
-      $pull: { favoriteMovies: req.params.MovieID }
-  },
-      { new: true },
-      (err, updatedUser) => {
-          if (err) {
-              console.error(err);
-              res.status(500).send('Error: ' + err);
-          } else {
-              res.json(updatedUser);
-          }
-      });
-});*/
-
-  //Delete
-// Delete a user by username
+// allow user to be deleted
 app.delete('/users/:Username', (req, res) => {
   Users.findOneAndRemove({ Username: req.params.Username })
-    .then((user) => {
-      if (!user) {
-        res.status(400).send(req.params.Username + ' was not found');
-      } else {
-        res.status(200).send(req.params.Username + ' was deleted from the list.');
-      }
-    })
+   .then((user) => {
+       if (!user) {
+           res.status(400).send(req.params.Username + ' was not found!');
+       } else {
+           res.status(200).send(req.params.Username + " was deleted!");
+       }
+   })
     .catch((err) => {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
+        console.error(err);
+        res.status(500).send('Error: ' + err);
     });
 });
 
-app.listen(8080, () => {
-  console.log('listening on port 8080');
+app.listen(8888, () => {
+  console.log('listening on port 8888');
 });
