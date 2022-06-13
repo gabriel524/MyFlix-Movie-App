@@ -101,7 +101,7 @@ app.get("/movies/:Title", (req, res) => {
 app.get("/genre/:Name", (req, res) => {
   Movies.findOne({"Genre.Name": req.params.Name })
     .then((genre) => {
-      res.json(genre);
+      res.json(genre.Genre);
     })
     
     .catch((err) => {
@@ -114,7 +114,7 @@ app.get("/genre/:Name", (req, res) => {
 app.get("/director/:Name", (req, res) => {
   Movies.findOne({"Director.Name": req.params.Name })
     .then((director) => {
-      res.json(director);
+      res.json(director.Director);
     })
 
     .catch((err) => {
@@ -232,6 +232,6 @@ app.delete('/users/:Username', (req, res) => {
     });
 });
 
-app.listen(8080, () => {
-  console.log('listening on port 8080');
+app.listen(8888, () => {
+  console.log('listening on port 8888');
 });
