@@ -128,7 +128,7 @@ app.get("/director/:Name", passport.authenticate('jwt', { session: false }), (re
 });//End of read
 
 //Begging of Create
-app.post("/users", (req, res) => {
+app.post("/users", passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if (user) {
