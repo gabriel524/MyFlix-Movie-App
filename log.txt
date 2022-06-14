@@ -889,3 +889,6 @@ Timestamp: Sat Apr 09 2022 01:03:54 GMT+0200 (Central European Summer Time)
 ::1 - - [13/Jun/2022:21:58:34 +0000] "DELETE /users/Williams%20Smith/movies/6290cad69cc37ae6f751ddcc HTTP/1.1" 200 219 "-" "PostmanRuntime/7.29.0"
 ::1 - - [13/Jun/2022:22:22:13 +0000] "DELETE /users/Williams%20Smith/movies/6290cad69cc37ae6f751ddcc HTTP/1.1" 200 219 "-" "PostmanRuntime/7.29.0"
 ::1 - - [13/Jun/2022:22:22:15 +0000] "DELETE /users/Williams%20Smith/movies/6290cad69cc37ae6f751ddcc HTTP/1.1" 200 219 "-" "PostmanRuntime/7.29.0"
+::1 - - [14/Jun/2022:20:06:50 +0000] "DELETE /users/Williams%20Smith/movies/6290cad69cc37ae6f751ddcc HTTP/1.1" 200 219 "-" "PostmanRuntime/7.29.0"
+::1 - - [14/Jun/2022:20:07:20 +0000] "GET /users HTTP/1.1" 201 1143 "-" "PostmanRuntime/7.29.0"
+::1 - - [14/Jun/2022:20:09:07 +0000] "DELETE /users/Alexa%20Bright/movies/6290cad69cc37ae6f751ddc9 HTTP/1.1" 200 236 "-" "PostmanRuntime/7.29.0"
