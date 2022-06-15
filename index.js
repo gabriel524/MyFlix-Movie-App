@@ -5,8 +5,8 @@ bodyParser = require("body-parser"),
   path = require("path");
   uuid = require('uuid');
   require('lodash');
-
-  const { body, validationResult } = require('express-validator');
+  
+  const { check, validationResult } = require('express-validator');
   
   const app = express();
   app.use(bodyParser.json());
@@ -131,29 +131,48 @@ app.get("/director/:Name", passport.authenticate('jwt', { session: false }), (re
 });//End of read
 
 //Begging of Create
-app.post("/users", passport.authenticate('jwt', { session: false }), (req, res) => {
-  Users.findOne({ Username: req.body.Username })
+app.post("/users",
+
+[ 
+  check('Username', 'Username is required').isLength({min: 5}),
+  check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+  check('Password', 'Password is required').not().isEmpty(),
+  check('Email', 'Email does not appear to be valid').isEmail()
+], 
+passport.authenticate('jwt', { session: false }), 
+(req, res) => {
+
+// check the validation object for errors
+  let errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+
+  let hashedPassword = Users.hashPassword(req.body.Password);
+  Users.findOne({ Username: req.body.Username }) // Search to see if a user with the requested username already exists
     .then((user) => {
       if (user) {
-        return res.status(400).send(req.body.Username + 'already exists');
+        //If the user is found, send a response that it already exists
+        return res.status(400).send(req.body.Username + ' already exists');
       } else {
         Users
           .create({
             Username: req.body.Username,
-            Password: req.body.Password,
+            Password: hashedPassword,
             Email: req.body.Email,
             Birthday: req.body.Birthday
           })
-          .then((user) =>{res.status(201).json(user) })
-        .catch((error) => {
-          console.error(error);
-          res.status(500).send("Error: " + error);
-        })
+          .then((user) => { res.status(201).json(user) })
+          .catch((error) => {
+            console.error(error);
+            res.status(500).send('Error: ' + error);
+          });
       }
     })
     .catch((error) => {
       console.error(error);
-      res.status(500).send("Error: " + error);
+      res.status(500).send('Error: ' + error);
     });
 });
 
@@ -225,6 +244,7 @@ app.delete('/users/:Username', passport.authenticate('jwt', { session: false }),
     });
 });
 
-app.listen(8888, () => {
-  console.log('listening on port 8888');
+const port = process.env.PORT || 8080;
+app.listen(port, '0.0.0.0',() => {
+ console.log('Listening on Port ' + port);
 });
