@@ -19,7 +19,7 @@ app.use(cors());
   const passport = require("passport");
   require("./passport");  
 
-app.use(morgan("common")); //add morgan middlewar library
+app.use(morgan("common")); //this adds morgan middlewar library
   
   const mongoose = require ("mongoose");
   const Models = require('./models.js');
