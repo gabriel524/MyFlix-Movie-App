@@ -31,7 +31,7 @@ app.use(morgan("common")); //this adds morgan middlewar library
   { useNewUrlParser: true,
     useUnifiedTopology: true });*/
 
-    mongoose.connect("mongodb+srv://Mycoolfilx-moviesppdb24:Abrahamdb123@myflix-movie-appdb.eodxu.mongodb.net/test?retryWrites=true&w=majority",
+    mongoose.connect("process.env.CONNECTION_URI",
   { useNewUrlParser: true,
     useUnifiedTopology: true });
 
