@@ -27,7 +27,11 @@ app.use(morgan("common")); //this adds morgan middlewar library
   const Movies = Models.Movie;
   const Users = Models.User;
   
-  mongoose.connect("mongodb://localhost:27017/test",
+  /*mongoose.connect("mongodb://localhost:27017/test",
+  { useNewUrlParser: true,
+    useUnifiedTopology: true });*/
+
+    mongoose.connect("mongodb+srv://Mycoolfilx-moviesppdb24:Abrahamdb123@myflix-movie-appdb.eodxu.mongodb.net/test?retryWrites=true&w=majority",
   { useNewUrlParser: true,
     useUnifiedTopology: true });
 
