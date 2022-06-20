@@ -59,7 +59,7 @@ app.get("/documentation", (req, res) => {
   res.sendFile(__dirname + "/public/documentation.html");
 });
 
-// Get all movies 
+// Get all movies from the list of movies
 app.get("/movies", (req, res) => {
   Movies.find()
     .then((movies) => {
