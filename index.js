@@ -1,32 +1,32 @@
 const express = require("express"),
 bodyParser = require("body-parser"),
   morgan = require("morgan"),
-  fs = require("fs"), 
+  fs = require("fs"),
   path = require("path");
   uuid = require('uuid');
   require('lodash');
-  
+
   const { check, validationResult } = require('express-validator');
-  
+
   const app = express();
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
-  
+
   const cors = require('cors');
 app.use(cors());
 
   let auth = require("./auth") (app);
   const passport = require("passport");
-  require("./passport");  
+  require("./passport");
 
 app.use(morgan("common")); //this adds morgan middlewar library
-  
+
   const mongoose = require ("mongoose");
   const Models = require('./models.js');
 
   const Movies = Models.Movie;
   const Users = Models.User;
-  
+
   /*mongoose.connect("mongodb://localhost:27017/test",
   { useNewUrlParser: true,
     useUnifiedTopology: true });*/
@@ -59,8 +59,8 @@ app.get("/documentation", (req, res) => {
   res.sendFile(__dirname + "/public/documentation.html");
 });
 
-// Get all movies 
-app.get("/movies", (req, res) => {
+// Get all movies
+app.get("/movies", passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
@@ -114,7 +114,7 @@ app.get("/genre/:Name", passport.authenticate('jwt', { session: false }), (req, 
     .then((genre) => {
       res.json(genre.Genre);
     })
-    
+
     .catch((err) => {
       console.error(err);
       res.status(500).send("Error: " + err);
@@ -137,13 +137,13 @@ app.get("/director/:Name", passport.authenticate('jwt', { session: false }), (re
 //Begging of Create
 app.post("/users",
 
-[ 
+[
   check('Username', 'Username is required').isLength({min: 5}),
   check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
   check('Password', 'Password is required').not().isEmpty(),
   check('Email', 'Email does not appear to be valid').isEmail()
-], 
-//passport.authenticate('jwt', { session: false }), 
+],
+//passport.authenticate('jwt', { session: false }),
 (req, res) => {
 
 // check the validation object for errors
