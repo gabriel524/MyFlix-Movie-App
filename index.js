@@ -12,8 +12,11 @@ bodyParser = require("body-parser"),
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
   
+ 
   const cors = require('cors');
-app.use(cors());
+  app.use(cors({
+    origin: '*'
+}));
 
   let auth = require("./auth") (app);
   const passport = require("passport");
