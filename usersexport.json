@@ -3,3 +3,4 @@
 {"_id":{"$oid":"6290ffffb5b2ef31f261fbf3"},"Username":"Alexa Bright","Password":"Ale_tr00!wm09g","Email":"brightalexa.343t@gmail.com","Birthday":"10/8/1974","FavoriteMovies":["6290cad69cc37ae6f751ddc9","6290cad69cc37ae6f751ddd0"]}
 {"_id":{"$oid":"6290ffffb5b2ef31f261fbf4"},"Username":"Williams Smith","Password":"bw24aZ18","Email":"willsmith.8103@gmail.com","Birthday":"23/2/1997","FavoriteMovies":["6290cad69cc37ae6f751ddcc","6290cad69cc37ae6f751ddd1","6290cad69cc37ae6f751ddca"]}
 {"_id":{"$oid":"62a61e23891ce5744c3b63e3"},"Username":"Kevlin Louis","Password":"Ima@!_KeVil78","Email":"thegratwallof.jeriho23@gmail.com","Birthday":{"$date":"1995-06-18T00:00:00Z"},"FavoriteMovies":[],"__v":0}
+
