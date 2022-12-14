@@ -2,7 +2,7 @@
  This web application is build to provide users with the best possible experience where users can access information about different movies, actors, and actresses, directors, and genres. The app will also allow users to sign up and update their personal information as well as create a list of their favorite movies. 
 
  Please note that this app is still undergoing development thus there will be constant updates to the codes and other information for the application until it's completed.
- 
+
  ---
 ### Dependencies
 - Node.JS
@@ -27,9 +27,9 @@ For a list of endpoints and responses check out the documentation.html! You can 
 
  ### App Documentation Screenshot:
 <p align="center">
-<img src="/images/img1.jpg" height="580" width="260" display="inline-block" margin="0 auto">
-<img src="/images/img2.jpg" height="580" width="260" display="inline-block" margin="0 auto">
-<img src="/images/img3.jpg" height="580" width="260" display="inline-block" margin="0 auto">
+<img src="/images/img.1.jpg" height="580" width="260" display="inline-block" margin="0 auto">
+<img src="/images/img.2.jpg" height="580" width="260" display="inline-block" margin="0 auto">
+<img src="/images/img.3.jpg" height="580" width="260" display="inline-block" margin="0 auto">
 </p>
 
 ---
