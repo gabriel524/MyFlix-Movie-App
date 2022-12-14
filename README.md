@@ -27,9 +27,9 @@ For a list of endpoints and responses check out the documentation.html! You can 
 
  ### App Documentation Screenshot:
 <p align="center">
-<img src="/images/img.1.jpg" height="580" width="260" display="inline-block" margin="0 auto">
-<img src="/images/img.2.jpg" height="580" width="260" display="inline-block" margin="0 auto">
-<img src="/images/img.3.jpg" height="580" width="260" display="inline-block" margin="0 auto">
+<img src="/images/img.1.jpg" display="inline-block" margin="0 auto">
+<img src="/images/img.2.jpg" display="inline-block" margin="0 auto">
+<img src="/images/img.3.jpg" display="inline-block" margin="0 auto">
 </p>
 
 ---
