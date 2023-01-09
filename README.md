@@ -35,4 +35,4 @@ For a list of endpoints and responses check out the documentation.html! You can 
 ---
 
 ### Authors
-Gabriel 
+Gabriel Singbeh
