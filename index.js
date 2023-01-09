@@ -13,7 +13,7 @@ bodyParser = require("body-parser"),
   app.use(bodyParser.urlencoded({ extended: true }));
 
    /* const cors = require('cors');
-app.use(cors());*/
+app.use(cors()); */
 
   let auth = require("./auth") (app);
   const passport = require("passport");
@@ -56,7 +56,8 @@ let allowedOrigins = [
   "http://localhost:8080",
   "http://localhost:1234",
   "http://localhost:4200",
-  "https://myflix-clint-bygabriel.netlify.app"
+  "https://myflix-clint-bygabriel.netlify.app",
+  "https://gabriel524.github.io/myFlix-Angular-client/"
 ];
 
 app.use(
