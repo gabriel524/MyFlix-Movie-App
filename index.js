@@ -35,7 +35,6 @@ app.use(morgan("common")); //this adds morgan middlewar library
   { useNewUrlParser: true,
     useUnifiedTopology: true });
 
-
 //setting up logging stream
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
   flags: "a",
