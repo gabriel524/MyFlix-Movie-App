@@ -10,53 +10,20 @@ bodyParser = require("body-parser"),
 
   const app = express();
   app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+  
+/* const cors = require("cors");
+app.use(cors()); */
 
-   const cors = require('cors');
-app.use(cors()); 
-
-  let auth = require("./auth") (app);
-  const passport = require("passport");
-  require("./passport");
-
-app.use(morgan("common")); //this adds morgan middlewar library
-
-  const mongoose = require ("mongoose");
-  const Models = require('./models.js');
-
-  const Movies = Models.Movie;
-  const Users = Models.User;
-
-  /* mongoose.connect("mongodb://localhost:27017/test",
-  { useNewUrlParser: true,
-    useUnifiedTopology: true }); */
-
-   mongoose.connect("process.env.CONNECTION_URI",
-  { useNewUrlParser: true,
-    useUnifiedTopology: true });
-
-//setting up logging stream
-const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
-  flags: "a",
-});
-
-//middleware - logging, static public folder, error logging
-app.use(morgan("combined", { stream: accessLogStream }));
-app.use(express.static('public'));
-
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("somethng seems broken here!");
-});
-
-const cors = require("cors");
-app.use(cors());
+//CORS
+const cors = require('cors');
 
 let allowedOrigins = [
   "http://localhost:8080",
   "http://localhost:1234",
   "http://localhost:4200",
   "https://myflix-clint-bygabriel.netlify.app",
+  "https://gabriel524.github.io"
 ];
 
 app.use(
@@ -74,6 +41,45 @@ app.use(
     },
   })
 );
+
+  /* const cors = require('cors');
+app.use(cors()); */
+
+  mongoose.connect(process.env.CONNECTION_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }); 
+
+  let auth = require("./auth") (app);
+  const passport = require("passport");
+  require("./passport");
+
+app.use(morgan("common")); //this adds morgan middlewar library
+
+  const mongoose = require ("mongoose");
+  const Models = require('./models.js');
+
+  const Movies = Models.Movie;
+  const Users = Models.User;
+
+  /* mongoose.connect("mongodb://localhost:27017/test",
+  { useNewUrlParser: true,
+    useUnifiedTopology: true }); */
+
+//setting up logging stream
+const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
+  flags: "a",
+});
+
+//middleware - logging, static public folder, error logging
+app.use(morgan("combined", { stream: accessLogStream }));
+app.use(express.static('public'));
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("somethng seems broken here!");
+});
+
 
 //Begging of read
 app.get("/", (req, res) => {
