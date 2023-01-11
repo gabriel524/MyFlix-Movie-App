@@ -12,8 +12,8 @@ bodyParser = require("body-parser"),
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 
-   /* const cors = require('cors');
-app.use(cors()); */
+   const cors = require('cors');
+app.use(cors()); 
 
   let auth = require("./auth") (app);
   const passport = require("passport");
@@ -31,7 +31,7 @@ app.use(morgan("common")); //this adds morgan middlewar library
   { useNewUrlParser: true,
     useUnifiedTopology: true }); */
 
-   mongoose.connect(process.env.CONNECTION_URI,
+   mongoose.connect("process.env.CONNECTION_URI",
   { useNewUrlParser: true,
     useUnifiedTopology: true });
 
