@@ -12,6 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+/* cors declearation */
 /* const cors = require("cors");
 app.use(cors()); */
 
