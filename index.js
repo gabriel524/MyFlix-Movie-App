@@ -12,8 +12,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const cors = require("cors");
-app.use(cors());
+/* const cors = require("cors");
+app.use(cors()); */
 
 let auth = require("./auth")(app);
 const passport = require("passport");
@@ -51,7 +51,7 @@ app.use((err, req, res, next) => {
 });
 
 const cors = require("cors");
-app.use(cors());
+/* app.use(cors()); */
 
 let allowedOrigins = [
   "http://localhost:8080",
