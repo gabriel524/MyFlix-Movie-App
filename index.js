@@ -52,7 +52,7 @@ app.use((err, req, res, next) => {
 });
 
 const cors = require("cors");
-//app.use(cors());
+app.use(cors());
 
 let allowedOrigins = [
   "http://localhost:8080",
