@@ -12,6 +12,32 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const cors = require("cors");
+//app.use(cors());
+
+let allowedOrigins = [
+  "http://localhost:8080",
+  "http://localhost:1234",
+  "http://localhost:4200",
+  "https://myflix-clint-bygabriel.netlify.app",
+  "https://gabriel524.github.io"
+];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        //If a specific origin isn't found on the list of allowed origins
+        let message =
+          "The CORS policy for this application doesn't allow acces from origin" +
+          origin;
+        return callback(new Error(message), false);
+      }
+      return callback(null, true);
+    },
+  })
+);
 /* cors declearation */
 /* const cors = require("cors");
 app.use(cors()); */
@@ -32,10 +58,10 @@ const Users = Models.User;
   { useNewUrlParser: true,
     useUnifiedTopology: true });*/
 
-mongoose.connect(process.env.CONNECTION_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+    mongoose.connect(process.env.CONNECTION_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
 //setting up logging stream
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
@@ -51,32 +77,6 @@ app.use((err, req, res, next) => {
   res.status(500).send("somethng seems broken here!");
 });
 
-const cors = require("cors");
-app.use(cors());
-
-let allowedOrigins = [
-  "http://localhost:8080",
-  "http://localhost:1234",
-  "http://localhost:4200",
-  "https://gabriel524.github.io",
-  "https://myflix-clint-bygabriel.netlify.app"
-];
-
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        //If a specific origin isn't found on the list of allowed origins
-        let message =
-          "The CORS policy for this application doesn't allow acces from origin" +
-          origin;
-        return callback(new Error(message), false);
-      }
-      return callback(null, true);
-    },
-  })
-);
 
 //Begging of read
 app.get("/", (req, res) => {
