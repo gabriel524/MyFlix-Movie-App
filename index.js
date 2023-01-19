@@ -52,15 +52,14 @@ app.use((err, req, res, next) => {
 });
 
 const cors = require("cors");
-app.use(cors());
+//app.use(cors());
 
 let allowedOrigins = [
   "http://localhost:8080",
   "http://localhost:1234",
   "http://localhost:4200",
-  "https://myflix-clint-bygabriel.netlify.app",
-  "https://gabriel524.github.io/myFlix-client_app/",
-  "https://gabriel524.github.io"
+  "https://gabriel524.github.io",
+  "https://myflix-clint-bygabriel.netlify.app"
 ];
 
 app.use(
